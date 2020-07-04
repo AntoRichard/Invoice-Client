@@ -1,0 +1,14 @@
+.create-invoice {
+    background-color: #0e2659;
+    height: 55px;
+    width: 55px;
+    position: fixed;
+    border-radius: 100px;
+    bottom: 0;
+    right: 0;
+    margin: 30px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    vertical-align: center;
+}

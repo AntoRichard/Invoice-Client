@@ -1,0 +1,22 @@
+.invoice-container {
+  padding: 0% 15%;
+}
+
+.invoice-inner-container {
+  height: 80vh;
+  width: 100%;
+  background-color: White;
+  border: 2px solid #f4f4f4;
+  border-radius: 5px;
+  box-shadow: 5px #f4f4f4;
+  padding: 10% 5%;
+}
+
+
+.invoice-table {
+  margin-top: 70px;
+}
+
+.chart-container .highcharts-grid {
+  display: none;
+}

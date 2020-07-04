@@ -1,0 +1,20 @@
+body {
+    background-color: #f4f4f4f4;
+}
+.customer-detail-container {
+    height: 50vh;
+    width: 100%;
+    background-color: white;
+}
+
+.customer-details {
+    padding: 10% 10% 5% 10%;
+    display: flex;
+}
+
+.secondary-details {
+    display: flex;
+    position: absolute;
+    right: 0;
+    padding-right: 10%;
+}

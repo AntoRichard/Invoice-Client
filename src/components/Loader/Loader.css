@@ -1,0 +1,10 @@
+.loader-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.loader-small {
+    height: 100px;
+    width: 100px;
+}

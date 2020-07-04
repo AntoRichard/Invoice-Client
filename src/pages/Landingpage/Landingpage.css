@@ -1,0 +1,42 @@
+.landingpage-container {
+  display: flex;
+  width: 100%;
+}
+
+.landingpage-name {
+  height: 100vh;
+  background-color: #0e2659;
+}
+
+.landingpage-brand {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  font-size: 54px;
+  color: white;
+}
+
+.landingpage-form-container {
+  height: 100vh;
+  background-color: #f4f4f4;
+  text-align: center;
+  border: 1px solid white;
+}
+
+@media only screen and (max-width: 1000px) {
+  .landingpage-brand {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-size: 44px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .landingpage-brand {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    font-size: 34px;
+  }
+}

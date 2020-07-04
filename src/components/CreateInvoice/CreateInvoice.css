@@ -1,0 +1,24 @@
+.create-invoice-conainer {
+    height: 500px;
+    width: 500px;
+    background-color: white;
+    display: inline-block;
+    margin-top: 30px;
+    border-radius: 7px;
+    box-shadow: 1px 1px 4px 4px #aaa;
+}
+
+.create-invoice-title {
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+.create-invoice-form {
+    margin: 30px;
+}
+
+.create-input {
+    width: 100%;
+    margin: 22px;
+    padding-top: 20px;
+}
