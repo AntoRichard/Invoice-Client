@@ -116,7 +116,7 @@ const Signup = ({ updateLogin }) => {
       </div>
       <div>
         <p>
-          Alredy have a account <a href={null} onClick={updateLogin}>Login</a>
+          Alredy have an account <a href={null} onClick={updateLogin}>Login</a>
         </p>
       </div>
     </div>

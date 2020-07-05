@@ -40,7 +40,7 @@ const UsersInvoice = props => {
   return (
     <div className="card-container" style={{ marginBottom: 50 }}>
       <div className="invoice-card">
-        <Barchat data={createData()} title="User Details" />
+        <Barchat data={createData()} title="Customer Summary" />
       </div>
     </div>
   );

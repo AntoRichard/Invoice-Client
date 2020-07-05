@@ -87,7 +87,7 @@ const Metric = () => {
 
       <div className="card-container" style={{ marginBottom: 50 }}>
         <div className="invoice-card">
-          <Barchat data={chartData} title="Date and Invoice" />
+          <Barchat data={chartData} title="Invoice Summary" />
         </div>
       </div>
       {state.user.admin && <UsersInvoice invoicesProp={invoices} />}

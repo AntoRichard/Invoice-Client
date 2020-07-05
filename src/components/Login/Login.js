@@ -12,7 +12,7 @@ import GIF from "../../assets/Gif/buttonloader.gif";
 
 const Login = (props) => {
   const { updateSignup } = props;
-  const [email, setEmail] = useState("anto@gmail.com");
+  const [email, setEmail] = useState("admin@gmail.com");
   const [password, setPassword] = useState("abcd@1234");
   const [loginLoader, setLoginLoader] = useState(false);
   const { dispatch } = useContext(AuthContext);
@@ -82,7 +82,7 @@ const Login = (props) => {
       </div>
       <div>
         <p>
-          don't have an account <a onClick={updateSignup}>signup</a>
+          Create an account <a onClick={updateSignup}>signup</a>
         </p>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext, Fragment } from "react";
 import InvoiceService from "../../services/Invoice";
+import UserService from "../../services/User";
 import Loader from "../Loader/Loader";
 import { Table } from "antd";
 import { Link } from "react-router-dom";
@@ -12,8 +13,10 @@ import { withRouter } from "react-router-dom";
 import "./Invoices.css";
 const { Column } = Table;
 
-const Invoice = ({ setAmount }) => {
+const Invoice = (props) => {
+  const { setAmount } = props;
   const [invoices, setInvoices] = useState([]);
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sort, setSort] = useState("Sort by");
   const [sortType, setSortType] = useState({});
@@ -21,7 +24,7 @@ const Invoice = ({ setAmount }) => {
   const [endDate, setEndDate] = useState("0");
   const { state } = useContext(AuthContext);
 
-  const getInvoiceData = (props) => {
+  const getInvoiceData = () => {
     InvoiceService.getInvoices(
       () => {
         setLoading(true);
@@ -66,8 +69,31 @@ const Invoice = ({ setAmount }) => {
       }
     );
   };
+
+  const getUserData = () => {
+    UserService.getAllUsersService(
+      () => {
+        setLoading(true);
+      },
+      (res) => {
+        const { users } = res.data;
+        console.log({ users });
+        setUsers(users);
+        setLoading(false);
+      },
+      (err) => {
+        setLoading(false);
+        props.history.push("/");
+      },
+      () => {}
+    );
+  };
+
   useEffect(() => {
     getInvoiceData();
+    {
+      state.user.admin && getUserData();
+    }
   }, []);
 
   const deleteHandler = (invoice) => {
@@ -96,6 +122,8 @@ const Invoice = ({ setAmount }) => {
   const Sort = (type) => {
     if (type === null) {
       getInvoiceData();
+      setStartDate("0");
+      setEndDate("0");
       return setSort("Sort by");
     }
     if (type) {
@@ -106,7 +134,7 @@ const Invoice = ({ setAmount }) => {
         desc: 0,
         aesc: 1,
       });
-      setSort("Sorted by ascending");
+      setSort("Older");
     } else {
       setSortType({ aesc: 0, desc: 1 });
       filterInvoice(InvoiceService.filterAndSortInvoice, {
@@ -115,20 +143,20 @@ const Invoice = ({ setAmount }) => {
         desc: 1,
         aesc: 0,
       });
-      setSort("Sorted by descending");
+      setSort("Newer");
     }
   };
 
   const menu = (
     <Menu>
       <Menu.Item>
-        <p onClick={() => Sort(null)}>None</p>
+        <p onClick={() => Sort(null)}>Default</p>
       </Menu.Item>
       <Menu.Item>
-        <p onClick={() => Sort(true)}>Ascending</p>
+        <p onClick={() => Sort(true)}>Older</p>
       </Menu.Item>
       <Menu.Item>
-        <p onClick={() => Sort(false)}>Desending</p>
+        <p onClick={() => Sort(false)}>Newer</p>
       </Menu.Item>
     </Menu>
   );
@@ -179,6 +207,18 @@ const Invoice = ({ setAmount }) => {
         </div>
         <div className="invoice-table">
           <Table dataSource={invoices} pagination={{ defaultPageSize: 5 }}>
+            {state.user.admin && users.length ? (
+              <Column
+                title="User Name"
+                dataIndex="userid"
+                key="userid"
+                render={(userid) =>
+                  users.filter((user) => user._id === userid)[0].username
+                }
+              />
+            ) : (
+              <p></p>
+            )}
             <Column title="Invoice Name" dataIndex="name" key="name" />
             <Column
               title="Invoice Date"
