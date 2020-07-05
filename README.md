@@ -14,7 +14,7 @@ Invoice application for invoice tracking to keep track of the invoices raised an
 1. Clone this repository.
 2. Install Node JS `https://nodejs.org/en/`.
 3. Install dependency using `npm install`.
-4. run `npm start` and check `http://localhost:3000`.
+4. run `npm start` to start the development server and open `http://localhost:3000`.
 
 ## Description
 
