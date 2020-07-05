@@ -12,6 +12,7 @@ const InputField = ({
   password,
   value = "",
   validation = () => {},
+  clickToSubmit = () => {}
 }) => {
   const [text, setText] = useState(value);
   const [error, setError] = useState(false);
@@ -25,6 +26,12 @@ const InputField = ({
     setError(true);
     setErrorMessage(validation(text));
   };
+
+  const onKeyDown = event => {
+    if(event.keyCode === 13) {
+      clickToSubmit();
+    }
+  }
   return (
     <Form.Item>
       <ModifiedInput
@@ -32,6 +39,7 @@ const InputField = ({
         placeholder={placeholder}
         prefix={icon}
         onChange={(e) => setText(e.target.value)}
+        onKeyUp={onKeyDown}
         value={text}
         onBlur={blurHandler}
       />

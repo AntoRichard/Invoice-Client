@@ -7,7 +7,6 @@ const UsersInvoice = (props) => {
   const { invoicesProp } = props;
   const [users, setUsers] = useState([]);
   const [invoices, setInvoices] = useState(invoicesProp);
-  const [barchart, setBarchart] = useState({});
   useEffect(() => {
     UserService.getAllUsersService(
       () => {},

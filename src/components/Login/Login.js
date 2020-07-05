@@ -70,6 +70,7 @@ const Login = (props) => {
             onBlurHandler={(password) => setPassword(password)}
             value={password}
             validation={checkPassword}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <Button onClickHandler={onClickHandler}>

@@ -103,6 +103,7 @@ const Signup = ({ updateLogin }) => {
             onBlurHandler={(password) => setConformPassword(password)}
             value={conformPassword}
             validation={checkPassword}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <Button type="submit" onClickHandler={onClickHandler}>
