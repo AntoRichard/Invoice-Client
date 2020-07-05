@@ -1,106 +1,32 @@
-# Implementing Context API in REACT APP 
 
-It is a normal todo list  implemented using context api.
+# Invoice Application
 
-Context API is mainly used in small scale application to maintain global state rather than redux.
+Invoice application for invoice tracking to keep track of the invoices raised and the corresponding amount.
 
-So, In this app context api is implemented in Redux way. So, It splits up the code and make it look better, allows developer to understand easily.
+## Requirements
 
-## Create Context
+- Node v12.16.3 
+- npm v6.14.5
+- React v16.13.1
 
-``` render-babel
-import { createContext } from "react";
+## Setup
 
-export const TodoContext = createContext();
+1. Clone this repository.
+2. Install Node JS `https://nodejs.org/en/`.
+3. Install dependency using `npm install`.
+4. run `npm start` and check `http://localhost:3000`.
 
-```
+## Description
 
-this above code creates you a context.
+- New user can sign up and create an account.
+- Existing user can login and logout from their corresponding account.
+- Registered users can create/update/delete invoices.
+- Updation/Deletion of invoice is restricted only to the created user.
+- Admin can view the list of all invoices in a tabular view. 
+- Admin can filter the invoices by selecting a date range. 
+- Users can view the list of their own invoices in a tabular view.
+- Users can filter the invoices by selecting a date range.
+- Admin can view the list of all invoices in a bar chart view with date on x-axis and number of invoices on y-axis.
+- Users can view the list of their own invoices in a bar chart view with date on x-axis and number of invoices on y-axis.
+- Admin can view the list of all invoices in a bar chart view with users on x-axis and number of invoices on y-axis. 
 
-## Add UseReducer
-``` render-babel
-import React, { useReducer } from "react";
-import { initalState } from "../store/todo";
-import { todoReducer } from "../Reducer/todo";
-import { TodoContext } from './todoContext'
-
-const Todo = props => {
-  const [state, dispatch] = useReducer(todoReducer, initalState);
-
-  return (
-    <TodoContext.Provider value={{ state, dispatch }}>
-      {props.children}
-    </TodoContext.Provider>
-  );
-};
-
-export default Todo;
-
-```
-
-pass a reducer and inital state to useReducer and pass the value to context provider so that you can use state and method where every you wrapped the context
-
-
-## Create Store
-``` render-babel
-export const initalState = {
-    todos: ['setup webpack', 'create a base ', 'implementing design']
-};
-```
-
-## Implement Reducer
-
-``` render-babel
-export const todoReducer = (state, action) => {
-    switch(action.type) {
-        case 'ADD_TODO': 
-            return {
-                ...state,
-                todos: [...state.todos, action.payload]
-            }
-        case 'DELETE_TODO': 
-            return {
-                ...state,
-                todos: state.todos.filter((todo, index) => index !== action.payload)
-            }
-        default: 
-            return state
-    }
-} 
-
-```
-
-So you can create reducer by above.
-
-## Wrapping parent component with context provider
-
-``` render-babel
-<TodoContextProvider>
-    <App />
-</TodoContextProvider>
-```
-
-you must wrap the needed parent component with the specific context provider.
-
-
-## using context and dispatch
-
-``` render-babel
-import React, { useState, useContext } from 'react';
-import { TodoContext } from './context/todoContext';
-
-const { state, dispatch } = useContext(TodoContext);
-
-const onClickHandler = () => {
-    dispatch({type: 'ADD_TODO', payload: todo})
-    setTodo('');
-  }
-```
-
-you can import the created context and distruct both the value(state and dispatch) from it.
-
-
-
-## Welcome
-
-Thank you for checking out!. Suggestion and request are always welcome. 
