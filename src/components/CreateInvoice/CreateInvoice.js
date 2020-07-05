@@ -18,6 +18,8 @@ const styles = {
 const CreateInvoice = () => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
+  const [date, setDate] = useState(moment(new Date(), "DD-MM-YYYY"));
+
   const openNotification = (type, title, message) => {
     notification[type]({
       message: title,
@@ -26,7 +28,7 @@ const CreateInvoice = () => {
   };
   const onClickHandler = () => {
     if (checkName(name) === true && checkAmount(amount) === true) {
-      const payload = { name, amount };
+      const payload = { name, amount, date };
       InvoiceApi.postInvoice(
         payload,
         () => {},
@@ -38,14 +40,16 @@ const CreateInvoice = () => {
               "Invoice created successfully."
             );
           }
-          setName("");
-          setAmount("");
         },
         (err) => {
           let text = `Failed to create Invoice.`;
           openNotification("error", "Invoice", text);
         },
-        () => {}
+        () => {
+          setName("");
+          setAmount("");
+          setDate(moment(new Date(), "DD-MM-YYYY"));
+        }
       );
     } else {
       openNotification(
@@ -76,8 +80,9 @@ const CreateInvoice = () => {
           <DatePicker
             size="large"
             style={styles.input}
-            disabled={true}
-            defaultValue={moment(new Date(), "YYYY-MM-DD")}
+            onChange={(date, dateString) => setDate(moment(new Date(dateString), "DD-MM-YYYY"))}
+            defaultValue={moment(new Date(), "DD-MM-YYYY")}
+            value={date}
           />
           <Button width={"100%"} onClickHandler={onClickHandler}>
             Create Invoice

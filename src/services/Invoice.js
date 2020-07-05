@@ -50,7 +50,19 @@ export default class Invoice {
 
   static filterInvoice(data, start, callback, error, next) {
     start();
-    return PlatformApi.get(`/invoices/filter?start=${data.start}&end=${data.end}`)
+    return PlatformApi.get(
+      `/invoices/filter?start=${data.start}&end=${data.end}`
+    )
+      .then(callback)
+      .catch(error)
+      .finally(next);
+  }
+
+  static filterAndSortInvoice(data, start, callback, error, next) {
+    start();
+    return PlatformApi.get(
+      `/invoices?asec=${data.aesc}&desc=${data.desc}&start=${data.start}&end=${data.end}`
+    )
       .then(callback)
       .catch(error)
       .finally(next);

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { notification } from "antd";
+import { notification, DatePicker } from "antd";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import InvoiceApi from "../../services/Invoice";
 import { checkName, checkAmount } from "../../Validation/Validation";
 import { withRouter } from "react-router-dom";
+import moment from "moment";
+
 const styles = {
   input: {
     marginBottom: 22,
@@ -15,7 +17,7 @@ const styles = {
 const UpdateInvoice = (props) => {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(moment(new Date(), "DD-MM-YYYY"));
 
   useEffect(() => {
     const id = props.match.params.id;
@@ -26,7 +28,7 @@ const UpdateInvoice = (props) => {
         const { data } = res.data;
         setName(data[0].name);
         setAmount(data[0].amount);
-        setDate(data[0].date);
+        setDate(moment(new Date(data[0].date), "DD-MM-YYYY"));
       },
       (err) => {
         props.history.push("/");
@@ -43,7 +45,7 @@ const UpdateInvoice = (props) => {
   };
   const onClickHandler = () => {
     if (checkName(name) === true && checkAmount(amount) === true) {
-      const payload = { name, amount, id: props.match.params.id };
+      const payload = { name, amount, date, id: props.match.params.id };
       InvoiceApi.patchInvoice(
         payload,
         () => {},
@@ -55,14 +57,16 @@ const UpdateInvoice = (props) => {
               "Invoice updated successfully."
             );
           }
-          setName("");
-          setAmount("");
         },
         (err) => {
           let text = `Failed to create Invoice.`;
           openNotification("error", "Invoice", text);
         },
-        () => {}
+        () => {
+          setName("");
+          setAmount("");
+          setDate(moment(new Date(), "DD-MM-YYYY"))
+        }
       );
     } else {
       openNotification(
@@ -90,12 +94,11 @@ const UpdateInvoice = (props) => {
             onChangeHander={(value) => setAmount(value)}
             validation={checkAmount}
           />
-          {/* <DatePicker
+          <DatePicker
             size="large"
             style={styles.input}
-            disabled={true}
-            defaultValue={moment(new Date(date), "YYY-MM-DD")}
-          /> */}
+            value={moment(new Date(date), "YYY-MM-DD")}
+          />
           <Button width={"100%"} onClickHandler={onClickHandler}>
             Update Invoice
           </Button>

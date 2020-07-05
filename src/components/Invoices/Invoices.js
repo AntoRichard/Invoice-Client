@@ -16,6 +16,9 @@ const Invoice = ({ setAmount }) => {
   const [invoices, setInvoices] = useState([]);
   const [loading, setLoading] = useState(false);
   const [sort, setSort] = useState("Sort by");
+  const [sortType, setSortType] = useState({});
+  const [startDate, setStartDate] = useState("0");
+  const [endDate, setEndDate] = useState("0");
   const { state } = useContext(AuthContext);
 
   const getInvoiceData = (props) => {
@@ -56,6 +59,7 @@ const Invoice = ({ setAmount }) => {
       },
       (err) => {
         console.error(err);
+        // props.history.push("/");
       },
       () => {
         setLoading(false);
@@ -95,10 +99,22 @@ const Invoice = ({ setAmount }) => {
       return setSort("Sort by");
     }
     if (type) {
-      filterInvoice(InvoiceService.sortInvoice, { desc: 0, aesc: 1 });
+      setSortType({aesc: 1, desc: 0})
+      filterInvoice(InvoiceService.filterAndSortInvoice, {
+        start: startDate,
+        end: endDate,
+        desc: 0,
+        aesc: 1,
+      });
       setSort("Sorted by ascending");
     } else {
-      filterInvoice(InvoiceService.sortInvoice, { desc: 1, aesc: 0 });
+      setSortType({aesc: 0, desc: 1})
+      filterInvoice(InvoiceService.filterAndSortInvoice, {
+        start: startDate,
+        end: endDate,
+        desc: 1,
+        aesc: 0,
+      });
       setSort("Sorted by descending");
     }
   };
@@ -120,9 +136,12 @@ const Invoice = ({ setAmount }) => {
   const { RangePicker } = DatePicker;
 
   const onChange = (dates, dateStrings) => {
-    filterInvoice(InvoiceService.filterInvoice, {
+    setStartDate(dateStrings[0]);
+    setEndDate(dateStrings[1]);
+    filterInvoice(InvoiceService.filterAndSortInvoice, {
       start: dateStrings[0],
       end: dateStrings[1],
+      ...sortType
     });
   };
 
