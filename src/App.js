@@ -13,7 +13,7 @@ const App = () => {
           path="/dashboard"
           Component={(props) => <Dashboard {...props} />}
         />
-        <Route path="/signup" component={(props) => <Landingpage {...props} />} />
+        <Route path="/" component={(props) => <Landingpage {...props} />} />
         <Route path="*" render={() => <Redirect to="/signup"/>}/>
       </Switch>
     </BrowserRouter>
