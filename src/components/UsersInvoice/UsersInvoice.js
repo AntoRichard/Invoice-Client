@@ -3,7 +3,7 @@ import Barchat from "../Barchart/Barchart";
 import UserService from "../../services/User";
 import { withRouter } from "react-router-dom";
 
-const UsersInvoice = (props) => {
+const UsersInvoice = props => {
   const { invoicesProp } = props;
   const [users, setUsers] = useState([]);
   const [invoices, setInvoices] = useState(invoicesProp);
@@ -26,9 +26,10 @@ const UsersInvoice = (props) => {
     let data = {};
     users.forEach((user) => {
       let matched = invoices.filter((invoice) => invoice.userid === user._id);
-      data[user.username] = matched.length;
+      if (user.username !== "admin") {
+        data[user.username] = matched.length;
+      }
     });
-    console.log({ data, users });
     return data;
   };
 

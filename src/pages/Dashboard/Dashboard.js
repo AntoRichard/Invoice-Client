@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from "react";
+import React from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Home from "../../components/Home/Home";
@@ -7,6 +7,7 @@ import Navbar from '../../components/Navbar/Navbar';
 import "./Dashboard.css";
 import UpdateInvoice from "../../components/UpdateInvoice/UpdateInvoice";
 import Metric from "../../components/Metric/Metric";
+import Profile from "../../components/Profile/Profile";
 
 const Dashboard = () => {
   return (
@@ -32,6 +33,10 @@ const Dashboard = () => {
           <Route
             path="/dashboard/metric"
             component={(props) => <Metric {...props} />}
+          />
+          <Route
+            path="/dashboard/profile"
+            component={(props) => <Profile {...props} />}
           />
           <Route
             path="/dashboard/*"

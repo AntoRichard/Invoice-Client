@@ -1,4 +1,4 @@
-import { SET_IS_AUTHENTICATED, SET_USER_DETAILS, SET_USER_MONEY } from "../types/auth";
+import { SET_IS_AUTHENTICATED, SET_USER_DETAILS } from "../types/auth";
 
 export const AuthReducer = (state, action) => {
   switch (action.type) {

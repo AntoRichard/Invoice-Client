@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { DatePicker, notification, Input, Form } from "antd";
+import { DatePicker, notification } from "antd";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import moment from "moment";
 import InvoiceApi from "../../services/Invoice";
-import { checkName, checkAmount } from "../../Validation/Validation";
+import { checkInvoiceName, checkAmount } from "../../Validation/Validation";
 
 import "./CreateInvoice.css";
 
@@ -27,7 +27,7 @@ const CreateInvoice = () => {
     });
   };
   const onClickHandler = () => {
-    if (checkName(name) === true && checkAmount(amount) === true) {
+    if (checkInvoiceName(name) === true && checkAmount(amount) === true) {
       const payload = { name, amount, date };
       InvoiceApi.postInvoice(
         payload,
@@ -68,7 +68,7 @@ const CreateInvoice = () => {
             placeholder="Enter Invoice Name"
             value={name}
             onChangeHander={value => setName(value)}
-            validation={checkName}
+            validation={checkInvoiceName}
           />
           <InputField
             placeholder="Enter Invoice Amount"

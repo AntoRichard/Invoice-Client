@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Input, Form } from "antd";
-import { InfoCircleOutlined } from "@ant-design/icons";
 
 import "./Input.css";
 

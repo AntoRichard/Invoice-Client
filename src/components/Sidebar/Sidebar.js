@@ -40,7 +40,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link>
+            <Link to="/dashboard/profile">
               <UserOutlined style={styles.icon} /> <span className="sidebar-text">Profile</span>
             </Link>
           </li>

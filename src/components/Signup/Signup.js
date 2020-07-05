@@ -74,6 +74,7 @@ const Signup = ({ updateLogin }) => {
             onBlurHandler={(username) => setUsername(username)}
             value={username}
             validation={checkName}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <div style={{ marginBottom: 15, padding: "0px 30px" }}>
@@ -83,6 +84,7 @@ const Signup = ({ updateLogin }) => {
             onBlurHandler={(email) => setEmail(email)}
             value={email}
             validation={checkEmail}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <div style={{ marginBottom: 15, padding: "0px 30px" }}>
@@ -93,6 +95,7 @@ const Signup = ({ updateLogin }) => {
             onBlurHandler={(password) => setPassword(password)}
             value={password}
             validation={checkPassword}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <div style={{ marginBottom: 15, padding: "0px 30px" }}>
@@ -108,12 +111,12 @@ const Signup = ({ updateLogin }) => {
         </div>
         <Button type="submit" onClickHandler={onClickHandler}>
           Signup
-          {loginLoader && <img src={GIF} height={25} width={25} />}
+          {loginLoader && <img src={GIF} alt="Loading . . . " height={25} width={25} />}
         </Button>
       </div>
       <div>
         <p>
-          Alredy have a account <a onClick={updateLogin}>Login</a>
+          Alredy have a account <a href={null} onClick={updateLogin}>Login</a>
         </p>
       </div>
     </div>

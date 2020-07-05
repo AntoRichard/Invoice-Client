@@ -3,7 +3,7 @@ import { notification, DatePicker } from "antd";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import InvoiceApi from "../../services/Invoice";
-import { checkName, checkAmount } from "../../Validation/Validation";
+import { checkInvoiceName, checkAmount } from "../../Validation/Validation";
 import { withRouter } from "react-router-dom";
 import moment from "moment";
 
@@ -44,7 +44,7 @@ const UpdateInvoice = (props) => {
     });
   };
   const onClickHandler = () => {
-    if (checkName(name) === true && checkAmount(amount) === true) {
+    if (checkInvoiceName(name) === true && checkAmount(amount) === true) {
       const payload = { name, amount, date, id: props.match.params.id };
       InvoiceApi.patchInvoice(
         payload,
@@ -85,7 +85,7 @@ const UpdateInvoice = (props) => {
             placeholder="Enter Invoice Name"
             value={name}
             onChangeHander={(value) => setName(value)}
-            validation={checkName}
+            validation={checkInvoiceName}
           />
           <InputField
             placeholder="Enter Invoice Amount"

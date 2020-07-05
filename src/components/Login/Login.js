@@ -60,6 +60,7 @@ const Login = (props) => {
             onBlurHandler={(email) => setEmail(email)}
             value={email}
             validation={checkEmail}
+            clickToSubmit={onClickHandler}
           />
         </div>
         <div style={{ marginBottom: 15, padding: "0px 30px" }}>
@@ -76,7 +77,7 @@ const Login = (props) => {
         <Button onClickHandler={onClickHandler}>
           {" "}
           Login
-          {loginLoader && <img src={GIF} height={25} width={25} />}
+          {loginLoader && <img src={GIF} alt="Loading. . . " height={25} width={25} />}
         </Button>
       </div>
       <div>

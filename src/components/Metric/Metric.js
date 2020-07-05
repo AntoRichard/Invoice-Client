@@ -38,7 +38,6 @@ const Metric = () => {
 
   const calculate = () => {
     const barhchart = {};
-    const barchart2 = {};
     let amount = [];
     let totalAmount = 0;
     // Extract date and number of invoices

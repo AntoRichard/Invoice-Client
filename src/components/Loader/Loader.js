@@ -5,7 +5,7 @@ import "./Loader.css";
 const Loader = ({ show }) => {
   const loadingComponent = (
     <div className="loader-container">
-      <img src={CubeLoader} className="loader-small"/>
+      <img src={CubeLoader} alt="Loading . . ." className="loader-small"/>
     </div>
   );
   return <Fragment>{show && loadingComponent}</Fragment>;

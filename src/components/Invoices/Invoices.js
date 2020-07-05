@@ -99,7 +99,7 @@ const Invoice = ({ setAmount }) => {
       return setSort("Sort by");
     }
     if (type) {
-      setSortType({aesc: 1, desc: 0})
+      setSortType({ aesc: 1, desc: 0 });
       filterInvoice(InvoiceService.filterAndSortInvoice, {
         start: startDate,
         end: endDate,
@@ -108,7 +108,7 @@ const Invoice = ({ setAmount }) => {
       });
       setSort("Sorted by ascending");
     } else {
-      setSortType({aesc: 0, desc: 1})
+      setSortType({ aesc: 0, desc: 1 });
       filterInvoice(InvoiceService.filterAndSortInvoice, {
         start: startDate,
         end: endDate,
@@ -141,9 +141,12 @@ const Invoice = ({ setAmount }) => {
     filterInvoice(InvoiceService.filterAndSortInvoice, {
       start: dateStrings[0],
       end: dateStrings[1],
-      ...sortType
+      ...sortType,
     });
   };
+
+  const checkDate = (date) =>
+    date === "0" ? null : moment(new Date(date), "DD-MM-YYYY");
 
   return (
     <div className="invoice-container">
@@ -168,6 +171,7 @@ const Invoice = ({ setAmount }) => {
                     moment().endOf("month"),
                   ],
                 }}
+                value={[checkDate(startDate), checkDate(endDate)]}
                 onChange={onChange}
               />
             </div>

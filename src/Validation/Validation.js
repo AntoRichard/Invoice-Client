@@ -7,6 +7,15 @@ export const checkName = (name) => {
   return true;
 };
 
+export const checkInvoiceName = (name) => {
+  if (!name.length) return "This feild should not be empty.";
+  var specialCharacter = /^[A-Z a-z 0-9]+$/;
+  if (!name.match(specialCharacter)) {
+    return "This feild should not contain special characters or numbers.";
+  }
+  return true;
+};
+
 export const checkAmount = (amount) => {
   if (!amount.length) return "This feild should not be empty.";
   if (isNaN(amount)) {
