@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/RootQuotient-Client/static/css/main.fcc0558b.chunk.css",
+    "main.js": "/RootQuotient-Client/static/js/main.81945177.chunk.js",
+    "main.js.map": "/RootQuotient-Client/static/js/main.81945177.chunk.js.map",
+    "runtime-main.js": "/RootQuotient-Client/static/js/runtime-main.65f732e0.js",
+    "runtime-main.js.map": "/RootQuotient-Client/static/js/runtime-main.65f732e0.js.map",
+    "static/css/2.c27a359e.chunk.css": "/RootQuotient-Client/static/css/2.c27a359e.chunk.css",
+    "static/js/2.25eaa1f5.chunk.js": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js",
+    "static/js/2.25eaa1f5.chunk.js.map": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js.map",
+    "index.html": "/RootQuotient-Client/index.html",
+    "precache-manifest.cf9b426d49b6b473406d88cd22ee38c0.js": "/RootQuotient-Client/precache-manifest.cf9b426d49b6b473406d88cd22ee38c0.js",
+    "service-worker.js": "/RootQuotient-Client/service-worker.js",
+    "static/css/2.c27a359e.chunk.css.map": "/RootQuotient-Client/static/css/2.c27a359e.chunk.css.map",
+    "static/css/main.fcc0558b.chunk.css.map": "/RootQuotient-Client/static/css/main.fcc0558b.chunk.css.map",
+    "static/js/2.25eaa1f5.chunk.js.LICENSE.txt": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js.LICENSE.txt",
+    "static/media/buttonloader.gif": "/RootQuotient-Client/static/media/buttonloader.ed25a86a.gif",
+    "static/media/loader.gif": "/RootQuotient-Client/static/media/loader.ee007598.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.65f732e0.js",
+    "static/css/2.c27a359e.chunk.css",
+    "static/js/2.25eaa1f5.chunk.js",
+    "static/css/main.fcc0558b.chunk.css",
+    "static/js/main.81945177.chunk.js"
+  ]
+}
