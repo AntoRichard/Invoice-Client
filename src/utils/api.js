@@ -2,7 +2,7 @@ import axios from "axios";
 import { BASE_URL } from "./const";
 
 export const PlatformApi = axios.create({
-  baseURL: BASE_URL,
+  baseURL: `${BASE_URL}/api/v1`,
   headers: {
     "Content-Type": "application/json",
     'Authorization': `Bearer ${localStorage.getItem("TOKEN")}`
