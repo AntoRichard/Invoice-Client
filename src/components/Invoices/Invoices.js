@@ -78,7 +78,6 @@ const Invoice = (props) => {
       },
       (res) => {
         const { users } = res.data;
-        console.log({ users });
         setUsers(users);
         setLoading(false);
       },
@@ -109,7 +108,6 @@ const Invoice = (props) => {
         }
       },
       (err) => {
-        console.log(err);
         Notification("error", "Invoice", "Issue while deleting the invoice.");
       },
       () => {}
@@ -230,7 +228,7 @@ const Invoice = (props) => {
               )}
             />
             <Column title="Invoice Amount" dataIndex="amount" key="amount" render={
-              amount => fmt.format(amount)
+              amount => `Rs. ${fmt.format(amount)}`
             } />
             {!state.user.admin && (
               <Fragment>

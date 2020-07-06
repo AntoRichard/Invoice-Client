@@ -11,11 +11,9 @@ const UsersInvoice = props => {
     UserService.getAllUsersService(
       () => {},
       (res) => {
-        console.log(res.data);
         setUsers(res.data.users);
       },
       (err) => {
-        console.log(err);
         props.history.push("/");
       },
       () => {}
@@ -26,7 +24,7 @@ const UsersInvoice = props => {
     let data = {};
     users.forEach((user) => {
       let matched = invoices.filter((invoice) => invoice.userid === user._id);
-      if (user.username !== "admin") {
+      if (user.username !== "Administrator") {
         data[user.username] = matched.length;
       }
     });
