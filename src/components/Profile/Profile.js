@@ -1,6 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Context/AuthContext";
 import InvoiceService from "../../services/Invoice";
+import UserService from "../../services/User";
+import { Redirect } from "react-router-dom";
+import NotificationService from "../Notification/NotificationService";
+import Button from "../Button/Button";
 import Loader from "../Loader/Loader";
 import fmt from "indian-number-format";
 import "./Profile.css";
@@ -10,6 +14,7 @@ const Profile = () => {
   const [totalInvoice, setTotalInvoice] = useState(0);
   const [totalAmount, setTotalAmount] = useState(0);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     InvoiceService.getInvoices(
       () => {
@@ -19,7 +24,9 @@ const Profile = () => {
         console.log(res.data.data);
         const invoices = res.data.data;
         setTotalInvoice(invoices.length);
-        setTotalAmount(invoices.reduce((total, invoice) => total + invoice.amount, 0));
+        setTotalAmount(
+          invoices.reduce((total, invoice) => total + invoice.amount, 0)
+        );
         setLoading(false);
       },
       (err) => {
@@ -30,7 +37,27 @@ const Profile = () => {
     );
   }, []);
 
-  console.log({ state });
+  const deleteHandler = () => {
+    UserService.deleteUserService(
+      () => {},
+      (res) => {
+        if (res) {
+          NotificationService(
+            "success",
+            "User Deletion",
+            "User deleted successfully."
+          );
+          return <Redirect to="/" />;
+        }
+      },
+      (err) => {
+        NotificationService("error", "User Deletion", "User deleting failed.");
+        return;
+      },
+      () => {}
+    );
+  };
+
   if (loading) return <Loader show={loading} />;
   return (
     <div className="profile-container">
@@ -53,6 +80,13 @@ const Profile = () => {
             Total amount: <h4>Rs.{fmt.format(totalAmount)}</h4>{" "}
           </p>
         </div>
+        {!state.user.admin && (
+          <div style={{ textAlign: "center", marginTop: 20 }}>
+            <Button secondary={true} width={250} onClickHandler={deleteHandler}>
+              DELETE ACCOUNT
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );

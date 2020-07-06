@@ -11,7 +11,7 @@ const UIButton = ({
   disabled = false ,
 }) => {
   const styles = {
-    color: secondary ? "#0e2659" : "#ffffff",
+    color: secondary ? "#ff0000" : "#ffffff",
     backgroundColor: secondary ? "#ffffff" : "#0e2659",
     width: width,
   };

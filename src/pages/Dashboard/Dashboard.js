@@ -42,6 +42,10 @@ const Dashboard = () => {
             path="/dashboard/*"
             render={() => <Redirect to="/dashboard/home" />}
           />
+          <Route
+            path="*"
+            render={() => <Redirect to="/" />}
+          />
         </Switch>
       </div>
     </div>

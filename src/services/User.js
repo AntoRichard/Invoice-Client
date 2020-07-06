@@ -26,4 +26,9 @@ export default class User {
     start();
     return PlatformApi.get("/users").then(callback).catch(error).finally(next);
   }
+
+  static deleteUserService(id, start, callback, error, next) {
+    start();
+    return PlatformApi.get(`user/${id}`).then(callback).catch(error).finally(next);
+  }
 }

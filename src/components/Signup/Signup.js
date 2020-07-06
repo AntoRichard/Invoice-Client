@@ -15,9 +15,9 @@ import GIF from "../../assets/Gif/buttonloader.gif";
 const Signup = ({ updateLogin }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState("abcd@1234");
+  const [conformPassword, setConformPassword] = useState("abcd@1234");
   const [loginLoader, setLoginLoader] = useState(false);
-  const [conformPassword, setConformPassword] = useState("");
 
   const onClickHandler = () => {
     if (password !== conformPassword) {
@@ -49,7 +49,7 @@ const Signup = ({ updateLogin }) => {
         (err) => {
           console.log(err);
           setLoginLoader(false);
-          Notification("error", "Signup", "Issue in creating user");
+          Notification("error", "Signup", "E-mail id already taken or Issue with creating an user");
         },
         () => {
           setEmail("");

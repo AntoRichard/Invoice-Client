@@ -10,6 +10,7 @@ import Notification from "../Notification/NotificationService";
 import { AuthContext } from "../../Context/AuthContext";
 import moment from "moment";
 import { withRouter } from "react-router-dom";
+import fmt from "indian-number-format";
 import "./Invoices.css";
 const { Column } = Table;
 
@@ -228,7 +229,9 @@ const Invoice = (props) => {
                 <p key={date}>{moment(date).format("DD-MM-YYYY")}</p>
               )}
             />
-            <Column title="Invoice Amount" dataIndex="amount" key="amount" />
+            <Column title="Invoice Amount" dataIndex="amount" key="amount" render={
+              amount => fmt.format(amount)
+            } />
             {!state.user.admin && (
               <Fragment>
                 <Column
