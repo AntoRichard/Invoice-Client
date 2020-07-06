@@ -21,16 +21,15 @@ const Profile = () => {
         setLoading(true);
       },
       (res) => {
-        console.log(res.data.data);
         const invoices = res.data.data;
         setTotalInvoice(invoices.length);
         setTotalAmount(
           invoices.reduce((total, invoice) => total + invoice.amount, 0)
         );
         setLoading(false);
+        return <Redirect to="/"/>
       },
       (err) => {
-        console.log(err);
         setLoading(false);
       },
       () => {}

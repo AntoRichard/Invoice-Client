@@ -15,8 +15,8 @@ import GIF from "../../assets/Gif/buttonloader.gif";
 const Signup = ({ updateLogin }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("abcd@1234");
-  const [conformPassword, setConformPassword] = useState("abcd@1234");
+  const [password, setPassword] = useState("");
+  const [conformPassword, setConformPassword] = useState("");
   const [loginLoader, setLoginLoader] = useState(false);
 
   const onClickHandler = () => {

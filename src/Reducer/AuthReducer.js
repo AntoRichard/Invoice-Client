@@ -8,8 +8,6 @@ export const AuthReducer = (state, action) => {
         isAuthenticated: action.payload,
       };
     case SET_USER_DETAILS:
-      console.log("I am called");
-      console.log(action.payload);
       return {
         ...state,
         user: action.payload,

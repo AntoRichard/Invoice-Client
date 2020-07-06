@@ -12,8 +12,8 @@ import GIF from "../../assets/Gif/buttonloader.gif";
 
 const Login = (props) => {
   const { updateSignup } = props;
-  const [email, setEmail] = useState("admin@gmail.com");
-  const [password, setPassword] = useState("abcd@1234");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loginLoader, setLoginLoader] = useState(false);
   const { dispatch } = useContext(AuthContext);
 

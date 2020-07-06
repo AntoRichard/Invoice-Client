@@ -5,10 +5,9 @@ import { Redirect } from "react-router-dom";
 
 const ProtectedRoute = ({ Component, path, ...rest }) => {
   const { state } = useContext(AuthContext);
-  console.log({ state });
   return (
     <Fragment>
-      {state.isAuthenticated ? (
+      {state.isAuthenticated || localStorage.getItem("TOKEN") ? (
         <Route
           component={(props) => <Component {...props} />}
           path={path}
