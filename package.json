@@ -2,7 +2,6 @@
   "name": "invoiceclient",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://AntoRichard.github.io/RootQuotient-Client",
   "engines": {
     "node": "12.16.3",
     "npm": "6.14.5"
