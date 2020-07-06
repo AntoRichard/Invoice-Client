@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/RootQuotient-Client/precache-manifest.7f115151e88d94f512510efe28dc8592.js"
+  "/RootQuotient-Client/precache-manifest.9f09758e028654a5242b49932697273c.js"
 );
 
 self.addEventListener('message', (event) => {
