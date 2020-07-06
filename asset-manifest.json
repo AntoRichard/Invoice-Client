@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/RootQuotient-Client/static/css/main.fcc0558b.chunk.css",
-    "main.js": "/RootQuotient-Client/static/js/main.400d232c.chunk.js",
-    "main.js.map": "/RootQuotient-Client/static/js/main.400d232c.chunk.js.map",
+    "main.css": "/RootQuotient-Client/static/css/main.0b2392a1.chunk.css",
+    "main.js": "/RootQuotient-Client/static/js/main.46910f94.chunk.js",
+    "main.js.map": "/RootQuotient-Client/static/js/main.46910f94.chunk.js.map",
     "runtime-main.js": "/RootQuotient-Client/static/js/runtime-main.65f732e0.js",
     "runtime-main.js.map": "/RootQuotient-Client/static/js/runtime-main.65f732e0.js.map",
     "static/css/2.c27a359e.chunk.css": "/RootQuotient-Client/static/css/2.c27a359e.chunk.css",
-    "static/js/2.25eaa1f5.chunk.js": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js",
-    "static/js/2.25eaa1f5.chunk.js.map": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js.map",
+    "static/js/2.eba618c9.chunk.js": "/RootQuotient-Client/static/js/2.eba618c9.chunk.js",
+    "static/js/2.eba618c9.chunk.js.map": "/RootQuotient-Client/static/js/2.eba618c9.chunk.js.map",
     "index.html": "/RootQuotient-Client/index.html",
-    "precache-manifest.6868fc1c438948a86e29c7d502c6ed0d.js": "/RootQuotient-Client/precache-manifest.6868fc1c438948a86e29c7d502c6ed0d.js",
+    "precache-manifest.8d03cc3c6a043db42d3ee892c9c4c194.js": "/RootQuotient-Client/precache-manifest.8d03cc3c6a043db42d3ee892c9c4c194.js",
     "service-worker.js": "/RootQuotient-Client/service-worker.js",
     "static/css/2.c27a359e.chunk.css.map": "/RootQuotient-Client/static/css/2.c27a359e.chunk.css.map",
-    "static/css/main.fcc0558b.chunk.css.map": "/RootQuotient-Client/static/css/main.fcc0558b.chunk.css.map",
-    "static/js/2.25eaa1f5.chunk.js.LICENSE.txt": "/RootQuotient-Client/static/js/2.25eaa1f5.chunk.js.LICENSE.txt",
+    "static/css/main.0b2392a1.chunk.css.map": "/RootQuotient-Client/static/css/main.0b2392a1.chunk.css.map",
+    "static/js/2.eba618c9.chunk.js.LICENSE.txt": "/RootQuotient-Client/static/js/2.eba618c9.chunk.js.LICENSE.txt",
     "static/media/buttonloader.gif": "/RootQuotient-Client/static/media/buttonloader.ed25a86a.gif",
     "static/media/loader.gif": "/RootQuotient-Client/static/media/loader.ee007598.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.65f732e0.js",
     "static/css/2.c27a359e.chunk.css",
-    "static/js/2.25eaa1f5.chunk.js",
-    "static/css/main.fcc0558b.chunk.css",
-    "static/js/main.400d232c.chunk.js"
+    "static/js/2.eba618c9.chunk.js",
+    "static/css/main.0b2392a1.chunk.css",
+    "static/js/main.46910f94.chunk.js"
   ]
 }
