@@ -32,7 +32,6 @@ const UpdateInvoice = (props) => {
       },
       (err) => {
         props.history.push("/");
-        console.log(err);
       },
       () => {}
     );
