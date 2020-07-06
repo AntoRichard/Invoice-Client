@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { AuthContext } from '../../Context/AuthContext';
-import { SET_IS_AUTHENTICATED, SET_USER_DETAILS } from '../../types/auth';
+import { AuthContext } from "../../Context/AuthContext";
+import { SET_IS_AUTHENTICATED, SET_USER_DETAILS } from "../../types/auth";
+import NotificationService from "../Notification/NotificationService";
 import {
   HomeOutlined,
   LineChartOutlined,
@@ -18,10 +19,11 @@ const Sidebar = () => {
   };
 
   const logout = () => {
-    dispatch({ action: SET_IS_AUTHENTICATED, payload: false })
-    dispatch({ action: SET_USER_DETAILS, payload: null })
+    dispatch({ action: SET_IS_AUTHENTICATED, payload: false });
+    dispatch({ action: SET_USER_DETAILS, payload: null });
     localStorage.clear();
-  }
+    NotificationService("success", "Logout successful", "");
+  };
   return (
     <div className="sidebar-inner-container">
       <div style={{ paddingLeft: 10 }}>
@@ -31,22 +33,26 @@ const Sidebar = () => {
         <ul>
           <li>
             <Link to="/dashboard/home">
-              <HomeOutlined style={styles.icon} /> <span className="sidebar-text">Home</span>
+              <HomeOutlined style={styles.icon} />{" "}
+              <span className="sidebar-text">Home</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard/metric">
-              <LineChartOutlined style={styles.icon} /> <span className="sidebar-text">Metric</span>
+              <LineChartOutlined style={styles.icon} />{" "}
+              <span className="sidebar-text">Metric</span>
             </Link>
           </li>
           <li>
             <Link to="/dashboard/profile">
-              <UserOutlined style={styles.icon} /> <span className="sidebar-text">Profile</span>
+              <UserOutlined style={styles.icon} />{" "}
+              <span className="sidebar-text">Profile</span>
             </Link>
           </li>
           <li className="logout-button">
             <Link to="/" onClick={logout}>
-              <LogoutOutlined style={styles.icon} /> <span className="sidebar-text">Logout</span>
+              <LogoutOutlined style={styles.icon} />{" "}
+              <span className="sidebar-text">Logout</span>
             </Link>
           </li>
         </ul>

@@ -36,7 +36,6 @@ const Login = (props) => {
           }
         },
         (err) => {
-          console.log(err);
           Notification("error", "Login", "Login failed.");
           setLoginLoader(false);
         }, () => {
