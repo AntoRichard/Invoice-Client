@@ -8,6 +8,7 @@ Invoice application for invoice tracking to keep track of the invoices raised an
 - Node v12.16.3 
 - npm v6.14.5
 - React v16.13.1
+- MongoDB v4.2.8
 
 ## Setup
 
